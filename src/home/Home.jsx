@@ -8,10 +8,16 @@ export { Home };
 function Home() {
     const dispatch = useDispatch();
     const { user: authUser } = useSelector(x => x.auth);
-    const { users } = useSelector(x => x.users);
+    //  const { users } = useSelector(x => x.users);
+    // const users=JSON.parse(localStorage.getItem('user'))
+    const users = {
+        id: 1,
+        firstName: 'demo',
+        lastName:'demo' 
+    }
     useEffect(() => {
-        dispatch(userActions.getAll());
-        // dispatch(cardActions.getAllCard());
+        // dispatch(userActions.getAll());
+        dispatch(cardActions.getAllCard());
         
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -28,6 +34,14 @@ function Home() {
                     )}
                 </ul>
             }
+
+            <div></div>
+
+
+
+
+
+
             {users.loading && <div className="spinner-border spinner-border-sm"></div>}
             {users.error && <div className="text-danger">Error loading users: {users.error.message}</div>}
         </div>

@@ -36,8 +36,17 @@ function authHeader(url) {
 }
 
 function authToken() {
+    let data = '';
+    if (localStorage.getItem('token'))
+    {
+        data = JSON.parse(localStorage.getItem('token')) 
+        console.log("token",data)
+        return data 
+    }
     return store.getState().auth.user?.token;
 }
+
+
 
 function handleResponse(response) {
     return response.text().then(text => {
