@@ -1,0 +1,13 @@
+#PaymentForm{
+    display:flex;
+}
+.form{
+    width: 500px;
+    display: grid;
+}
+.form input{
+    margin:5px;
+    border:1px solid gray;
+    border-radius: 5px;
+}
+

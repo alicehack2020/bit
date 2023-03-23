@@ -1,3 +1,4 @@
+import PaymentForm from 'PaymentForm/PaymentForm ';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -35,15 +36,18 @@ function Home() {
                 </ul>
             }
 
-            <div></div>
+            <div>
+                <PaymentForm/>
+            </div>
 
 
 
 
 
-
+            
             {users.loading && <div className="spinner-border spinner-border-sm"></div>}
             {users.error && <div className="text-danger">Error loading users: {users.error.message}</div>}
         </div>
+
     );
 }
