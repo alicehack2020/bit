@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import Cards from 'react-credit-cards-2';
 import 'react-credit-cards-2/es/styles-compiled.css';
+import { cardActionssend } from '_store';
 import "./index.css"
+import { useSelector, useDispatch } from 'react-redux';
+
+ 
 const PaymentForm = () => {
   const [state, setState] = useState({
     number: '',
@@ -11,6 +15,7 @@ const PaymentForm = () => {
     focus: '',
   });
 
+  const dispatch = useDispatch();
   const handleInputChange = (evt) => {
     const { name, value } = evt.target;
     
@@ -22,7 +27,7 @@ const PaymentForm = () => {
   }
 
   const sendData = () => {
-  
+    return dispatch(cardActionssend.postCard(state));   
   }
   return (
     <div id='PaymentForm'>
@@ -53,7 +58,7 @@ const PaymentForm = () => {
         <input
           type="tel"
           name="expiry"
-          placeholder="expiry date"
+          placeholder="expiry date eg.11/11"
           pattern="\d\d/\d\d"
           value={state.expiry}
           onChange={handleInputChange}
@@ -68,6 +73,7 @@ const PaymentForm = () => {
           onChange={handleInputChange}
           onFocus={handleInputFocus}
         />
+         <input type="submit" value="Submit"></input>
       </form>
     </div>
   );

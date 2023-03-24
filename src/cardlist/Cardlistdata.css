@@ -1,0 +1,32 @@
+.tariffCards {
+  transform: translate3d(0, 0, 0);
+  transform-style: preserve-3d;
+  /* display: flex; */
+  flex-direction: column;
+  /* justify-content: center; */
+  margin-top:90px;
+  position:absolute;
+
+}
+
+.tariffCards > div {
+  /* position: relative; */
+  /* width: auto;
+  height: auto; */
+  /* border-radius: 12px; */
+  /* color: white; */
+  /* transform: rotateX(45deg) rotateY(-15deg) rotate(45deg); */
+  transform: rotateX(45deg) rotateY(-10deg) rotate(45deg);
+  transition: all 0.4s ease;
+  /* overflow: hidden; */
+  cursor: pointer;
+  margin: -50px 20px;
+  /* padding:25px 0px; */
+}
+
+.tariffCards > div:hover {
+  transform: translateZ(50px);
+  z-index: 1;
+  margin: 65px 0px;
+  transform: rotateX(10deg) rotateY(-10deg);
+ }

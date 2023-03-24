@@ -43,7 +43,7 @@ function createExtraActions() {
     return {
         login: login()
     };    
-
+    
     function login() {
         return createAsyncThunk(
             `${name}/login`,

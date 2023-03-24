@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { authReducer } from './auth.slice';
-import { usersReducer,cardReducer } from './users.slice';
+import { usersReducer} from './users.slice';
+import {cardReducer} from './cards.slice';
 
 export * from './auth.slice';
 export * from './users.slice';
+export * from "./cards.slice"
 
 export const store = configureStore({
     reducer: {
@@ -13,3 +15,5 @@ export const store = configureStore({
         cards:cardReducer
     },
 });
+
+// console.log(store.getState().cards.cards);

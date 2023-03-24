@@ -1,27 +1,23 @@
 import PaymentForm from 'PaymentForm/PaymentForm ';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { userActions,cardActions } from '_store';
-
+ import Cardlistdata from 'cardlist/Cardlistdata';
 export { Home };
 
 function Home() {
-    const dispatch = useDispatch();
+   
     const { user: authUser } = useSelector(x => x.auth);
-    //  const { users } = useSelector(x => x.users);
+    //  const { card } = useSelector(x=>x.cards);
     // const users=JSON.parse(localStorage.getItem('user'))
+
+  
     const users = {
         id: 1,
         firstName: 'demo',
         lastName:'demo' 
     }
-    useEffect(() => {
-        // dispatch(userActions.getAll());
-        dispatch(cardActions.getAllCard());
-        
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    
 
     return (
         <div>
@@ -39,6 +35,11 @@ function Home() {
             <div>
                 <PaymentForm/>
             </div>
+            <div>
+                <Cardlistdata/>
+            </div>
+
+             
 
 
 
