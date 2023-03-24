@@ -44,7 +44,7 @@ function createCardInitialState() {
 }
 
 function createCardExtraActions() {
-    const baseUrl = `${process.env.REACT_APP_API_URL}/cards`;
+    const baseUrl = `${process.env.REACT_APP_API_URL}/cards?limit=100`;
 
     return {
         getAllCard: getAllCard()
@@ -68,13 +68,13 @@ function createCardExtraReducers() {
         var { pending, fulfilled, rejected } = extraCardActions.getAllCard;
         return {
             [pending]: (state) => {
-                state.users = { loading: true };
+                state.cards = { loading: true };
             },
             [fulfilled]: (state, action) => {
-                state.users = action.payload;
+                state.cards = action.payload;
             },
             [rejected]: (state, action) => {
-                state.users = { error: action.error };
+                state.cards = { error: action.error };
             }
         };
     }
@@ -116,13 +116,13 @@ function createCardExtraReducerssend() {
         var { pending, fulfilled, rejected } = extraCardActionssend.postCard;
         return {
             [pending]: (state) => {
-                state.users = { loading: true };
+                state.user = { loading: true };
             },
             [fulfilled]: (state, action) => {
-                state.users = action.payload;
+                state.user = action.payload;
             },
             [rejected]: (state, action) => {
-                state.users = { error: action.error };
+                state.user = { error: action.error };
             }
         };
     }

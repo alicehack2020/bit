@@ -4,6 +4,8 @@ import { history } from '_helpers';
 import { Nav, PrivateRoute } from '_components';
 import { Home } from 'home';
 import { Login } from 'login';
+import PaymentForm from 'PaymentForm/PaymentForm ';
+import Cardlistdata from 'cardlist/Cardlistdata';
 
 export { App };
 
@@ -23,6 +25,22 @@ function App() {
                         element={
                             <PrivateRoute>
                                 <Home />
+                            </PrivateRoute>
+                        }
+                    />
+                     <Route
+                        path="/cards/new"
+                        element={
+                            <PrivateRoute>
+                                <PaymentForm />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/cards"
+                        element={
+                            <PrivateRoute>
+                                <Cardlistdata />
                             </PrivateRoute>
                         }
                     />
